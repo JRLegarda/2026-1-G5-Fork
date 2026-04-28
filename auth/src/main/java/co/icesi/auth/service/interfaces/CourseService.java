@@ -13,4 +13,6 @@ public interface  CourseService {
     public Course editCourse(Course c);
 
     public Course addUserToCourse(long courseId, long userId);
+
+    public Course getCourseById(long id);
 }

@@ -48,7 +48,7 @@ public class CourseServiceImp implements CourseService{
 
 
             if(c.getTeacher() != null){
-                User u = userRepository.findById(c.getId()).orElseThrow(() -> new RuntimeException("User not found"));
+                User u = userRepository.findById(c.getTeacher().getId()).orElseThrow(() -> new RuntimeException("User not found"));
                 course.setTeacher(u);
             }
             return repository.save(course);
@@ -59,10 +59,39 @@ public class CourseServiceImp implements CourseService{
 
     @Override
     public Course addUserToCourse(long courseId, long userId) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'addUserToCourse'");
+        Optional<Course> optional = repository.findById(courseId);
+
+        if (optional.isPresent()){
+            Course course = optional.get();
+
+            Optional<User> u = userRepository.findById(userId);
+
+            if(u.isPresent()){
+                User user = u.get();
+
+                course.getStudents().add(user);
+
+            }
+            return repository.save(course);
+        }
+        else{
+            throw new RuntimeException("Course not found");
+        }
     }
-    
-    
-    
+
+    @Override
+    public Course getCourseById(long id) {
+
+        Optional<Course> find = repository.findById(id);
+
+        if(find.isPresent()){
+            return find.get();
+        }
+        else {
+            throw new RuntimeException("Course not found");
+        }
+
+    }
+
+
 }

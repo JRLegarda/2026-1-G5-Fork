@@ -18,13 +18,13 @@ public interface CourseApi {
     public ResponseEntity<Course> saveCourse(@RequestBody Course c);
 
     @PostMapping("/{id}/students")
-    public ResponseEntity<Course> addUserToCourse(@PathVariable long id, @RequestBody User c);
+    public ResponseEntity<?> addUserToCourse(@PathVariable long id, @RequestBody User c);
 
     @PutMapping("/{id}")
     public ResponseEntity<?> updateCourse(@PathVariable long id, @RequestBody Course c);
 
     @GetMapping("/{id}")
-    public List<Course> getCourseDetail(@PathVariable long id);
+    public ResponseEntity<?> getCourseDetail(@PathVariable long id);
 }
 
 
