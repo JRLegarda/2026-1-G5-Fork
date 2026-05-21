@@ -20,7 +20,7 @@ const LoginPage = () => {
       if (response.success) {
         
         setIsAuthenticated(true)
-        navigate('/animals');
+        navigate('/courses');
       } else {
         setError('Invalid credentials');
       }

@@ -1,10 +1,33 @@
 import { useAuthContext } from "./useAuthContext";
 
+/**
+ * Hook to check if the user has specific permissions
+ * Returns user authentication status and permission details
+ */
 export const usePermission = () => {
-  const { isAuthenticated } = useAuthContext();
+  const { isAuthenticated, user } = useAuthContext();
 
-  // Logic to validate permissions
-  // In a real app, you might pass specific permission strings here
+  const checkPermission = (permission) => {
+    if (!isAuthenticated) return false;
+    if (!user || !user.permissions) return false;
+    return user.permissions.includes(permission);
+  };
 
-  return { isAuthorized:true, isAuthenticated };
+  const hasAnyPermission = (permissions) => {
+    return permissions.some(permission => checkPermission(permission));
+  };
+
+  const hasAllPermissions = (permissions) => {
+    return permissions.every(permission => checkPermission(permission));
+  };
+
+  return {
+    isAuthenticated,
+    isAuthorized: isAuthenticated,
+    user,
+    checkPermission,
+    hasAnyPermission,
+    hasAllPermissions,
+    permissions: user?.permissions || []
+  };
 };

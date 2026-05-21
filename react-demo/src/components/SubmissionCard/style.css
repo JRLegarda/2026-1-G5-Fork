@@ -1,0 +1,149 @@
+.submission-card {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  border-radius: 8px;
+  padding: 18px;
+  margin: 12px 0;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  color: white;
+  border-left: 5px solid rgba(255, 255, 255, 0.3);
+}
+
+.submission-card:hover {
+  transform: translateX(5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.submission-card.graded {
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+  border-left-color: #43e97b;
+}
+
+.submission-card.pending {
+  background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+  border-left-color: #fa709a;
+}
+
+.submission-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.student-info {
+  flex-grow: 1;
+}
+
+.student-info h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+.status {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 15px;
+  font-size: 0.85em;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.status.graded {
+  background: rgba(67, 233, 123, 0.3);
+}
+
+.status.pending {
+  background: rgba(255, 107, 107, 0.3);
+}
+
+.submitted-date {
+  font-size: 0.9em;
+  opacity: 0.9;
+  white-space: nowrap;
+  margin-left: 20px;
+}
+
+.submission-content {
+  margin: 12px 0;
+}
+
+.content-label {
+  font-weight: 600;
+  font-size: 0.9em;
+  margin: 0 0 6px 0;
+  opacity: 0.9;
+}
+
+.content-text {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 10px;
+  border-radius: 5px;
+  margin: 0;
+  line-height: 1.5;
+  max-height: 100px;
+  overflow-y: auto;
+}
+
+.feedback {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 5px;
+  margin: 12px 0;
+  border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.feedback-label {
+  font-weight: 600;
+  font-size: 0.9em;
+  margin: 0 0 6px 0;
+  opacity: 0.9;
+}
+
+.feedback-text {
+  margin: 0;
+  line-height: 1.4;
+  opacity: 0.95;
+}
+
+.submission-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.action-btn {
+  flex: 1;
+  padding: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9em;
+}
+
+.action-btn:hover {
+  background: rgba(255, 255, 255, 0.35);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: scale(1.02);
+}
+
+.action-btn.grade-btn:active {
+  transform: scale(0.98);
+}
+
+.action-btn.delete-btn {
+  background: rgba(255, 107, 107, 0.25);
+  border-color: rgba(255, 107, 107, 0.4);
+}
+
+.action-btn.delete-btn:hover {
+  background: rgba(255, 107, 107, 0.35);
+  border-color: rgba(255, 107, 107, 0.6);
+}

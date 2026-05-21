@@ -1,5 +1,6 @@
 import { Navigate, Outlet } from 'react-router-dom';
 import { usePermission } from '../../hooks/usePermission';
+import Navbar from '../Navbar/Navbar';
 
 /**
  * Component that guards routes based on permissions.
@@ -14,8 +15,13 @@ const ProtectedRoute = () => {
     return <Navigate to="/login" replace />;
   }
 
-  // If authorized, render the matched child route
-  return <Outlet />;
+  // If authorized, render the navbar and matched child route
+  return (
+    <>
+      <Navbar />
+      <Outlet />
+    </>
+  );
 };
 
 export default ProtectedRoute;
